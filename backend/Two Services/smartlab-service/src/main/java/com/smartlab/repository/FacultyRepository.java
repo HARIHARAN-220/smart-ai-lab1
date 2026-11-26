@@ -1,0 +1,12 @@
+package com.smartlab.repository;
+
+import com.smartlab.entity.Faculty;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+public interface FacultyRepository extends JpaRepository<Faculty, Long>, JpaSpecificationExecutor<Faculty> {
+    Faculty findByEmail(String email);
+    Faculty findByEmailIgnoreCase(String email);
+    Faculty findByUserId(Long userId);
+    long countByDepartmentDepartmentId(Long departmentId);
+}
